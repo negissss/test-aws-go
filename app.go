@@ -35,6 +35,7 @@ func StartService(cfg *config.Config) {
 	server.ConfigRoutesAndSchedulers(app)
 	serverErr := make(chan error, 1)
 	go func() {
+		fmt.Println("cfg.HTTP.Port::::", cfg.HTTP.Port)
 		serverErr <- app.Run(cfg.HTTP.Port)
 	}()
 	fmt.Println(srv)
