@@ -12,31 +12,33 @@
     
     # Binary name change -> cryptoapiservice
     RUN go build -ldflags="-s -w" -o test-aws-go ./cmd/main.go
+
+    CMD ["./test-aws-go", "serve"]
     
     
     # -------- Run Stage --------
-    FROM alpine:latest
+    # FROM alpine:latest
     
-    RUN apk --no-cache add ca-certificates curl \
-        && addgroup -S appgroup && adduser -S appuser -G appgroup
+    # RUN apk --no-cache add ca-certificates curl \
+    #     && addgroup -S appgroup && adduser -S appuser -G appgroup
     
-    WORKDIR /app
+    # WORKDIR /app
     
-    # Copy binary
-    COPY --from=builder /app/test-aws-go .
+    # # Copy binary
+    # COPY --from=builder /app/test-aws-go .
     
-    # Copy ABI folder
-    COPY --from=builder /app/internal/provider/evm ./abi
+    # # Copy ABI folder
+    # # COPY --from=builder /app/internal/provider/evm ./abi
     
-    # (optional) copy migrations/config if required later
-    # COPY --from=builder /app/migrations ./migrations
-    # COPY --from=builder /app/config ./config
+    # # (optional) copy migrations/config if required later
+    # # COPY --from=builder /app/migrations ./migrations
+    # # COPY --from=builder /app/config ./config
     
-    RUN chown -R appuser:appgroup /app
+    # RUN chown -R appuser:appgroup /app
     
-    USER appuser
+    # USER appuser
     
-    EXPOSE 7322
+    # EXPOSE 7322
     
-    # Run solveronboarding service
-    CMD ["./test-aws-go", "serve"]
+    # # Run solveronboarding service
+    # CMD ["./test-aws-go", "serve"]
