@@ -1,0 +1,22 @@
+name: '[dev] Deploy solver-onboarding Backend'
+
+on: 
+  push:
+    branches: 
+      - dev
+
+jobs:
+  solver-onboarding-backend:
+    uses: Qubetics/argocd-qubetics/.github/workflows/deployment.yaml@dev
+    with:
+      SWR_ORGANIZATION: dev-qubetics
+      ARGOCD_BRANCH: dev
+      HUAWEI_REGION: 'ap-southeast-3'
+      ARGOCD_REPOSITORY: Qubetics/argocd-qubetics
+      DEPLOYMENT_PATH: solver-crypto-api/deployment.yaml
+      HUAWEI_IMAGE: dev-solver-crypto-api
+      DOCKER_USERNAME: ap-southeast-3@HPUAPZMSZHNKTAIENRZO
+      ENV: ${{ vars.DEV_SOLVER_ONBOARDING_FRONTEND }}
+    secrets:
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      GIT_SSH_KEY: ${{ secrets.ARGOCD_SSH_KEY }} 

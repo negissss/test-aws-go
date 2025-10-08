@@ -1,0 +1,42 @@
+# Binaries and build output
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+/bin/
+/build/
+/dist/
+
+# Go build cache & modules
+*.log
+*.cache
+*.prof
+*.pprof
+*.cover
+*.tmp
+*.swp
+*.swo
+
+# IDE/editor files
+.vscode/
+.idea/
+*.iml
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Vendor (if you don't commit vendor deps)
+vendor/
+
+# Config & secrets
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.cert
+*.p12
+*.keystore
