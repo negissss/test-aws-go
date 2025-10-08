@@ -13,7 +13,7 @@ func LoadHTTPConfig() *HTTPConfig {
 	return &HTTPConfig{
 		Host:       getEnv("HOST", "0.0.0.0"),
 		Port:       getEnv("PORT", "7322"),
-		ExposePort: getEnv("EXPOSE_PORT", "8080"),
+		ExposePort: getEnv("EXPOSE_PORT", "7322"),
 		AppEnv:     getEnv("GIN_MODE", "release"),
 	}
 }
