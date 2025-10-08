@@ -12,7 +12,7 @@ type HTTPConfig struct {
 func LoadHTTPConfig() *HTTPConfig {
 	return &HTTPConfig{
 		Host:       getEnv("HOST", "0.0.0.0"),
-		Port:       getEnv("PORT", "8080"),
+		Port:       getEnv("PORT", "7322"),
 		ExposePort: getEnv("EXPOSE_PORT", "8080"),
 		AppEnv:     getEnv("GIN_MODE", "release"),
 	}
